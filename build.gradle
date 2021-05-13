@@ -13,15 +13,20 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
-
 repositories {
     mavenCentral()
+    maven {
+        url "https://files.boxfuse.com"
+    }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    compile group: 'ca.pjer', name: 'logback-awslogs-appender', version: '1.0.0'
+    //compile 'com.boxfuse.cloudwatchlogs:cloudwatchlogs-java-appender:1.0.2.17'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
